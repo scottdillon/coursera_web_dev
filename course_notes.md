@@ -233,3 +233,67 @@ An exclamation point important `!important` over-rides the specificity rules to 
 * Percent - `font-size: 120%;`
 * ems - `font-size: 2em;` relative to the font size when it was applied even
 if after being increased already.
+
+### Lecture 19: The Box Model
+Each box is composed by:
+* Content at the center
+* Padding outside the content and inside the border
+* border
+* Margin
+
+![alt text](https://www.codeproject.com/KB/HTML/567385/boxmodel-image.png "HTML Box Model")
+
+#### CSS Resetting:
+Resets the margins, padding and border-box widths for all elements
+
+```CSS
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+```
+
+### Lecture 19: The box models
+* star selector: `* {box-sizing: border-box;}` makes the entire box the width instead of content box.
+* Padding, border, then margin from inside to outside.
+* Left and right margins add together to form a cumulative margin.
+* box-sizing is not inherited from body selector.
+* Top and bottom margins do not add together but take the greater of two margins for the margin between two elements. Margins collapse vertically.
+*
+A good default to clear out margins and padding in a CSS template is:
+```CSS
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+```
+`overflow: hidden` hides the content that overflows out of the height of a div.
+`overflow: auto;` puts scroll bars where needed. Not a good idea generally.
+
+
+### Lecture 20: Background
+* `background-color` : gives the background a color
+* `background`
+
+
+### Lecture 21: Position Elements by floating
+Floating an item takes it out of the normal workflow. Other elements below it, for example, will move up to fill it's spot.
+Floats don't have vertical margin collapse.
+To resume normal float, use the clear property.
+
+Use `float: left; float: right;` to move elements to the left and right in combination with `clear: left; clear: right; clear: both` to move elements below these floated objects.
+
+Two column design:
+Use `width: 50%;` along with `box-sizing: border-box;` and `float: right;`
+
+### Lecture 22: Relative and Absolute Element Positioning
+* relative Positioning: top, bottom, left and right offset properties.
+	* Moves element 'from' the property. So:
+	  `top: -50px` moves the element 50px down from the top border.
+	* Still in normal document flow.
+	* Does not move other elements.
+* Absolute Positioning: Taken out of normal document flow.
+	* Offset is relative to the position of the nearest ancestor which has Positioning set on it, other than static.
+	* `html` is the only elements that has non-static positioning set on it (relative)
